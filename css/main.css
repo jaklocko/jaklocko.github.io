@@ -11,19 +11,31 @@ Hint! You'll probably want to start by styling:
 I've left some boilerplate below for you.
 
 */
-
-@media screen and (min-width: 600px){
-  /*h1 {
-    font-size: 3em;
-  }*/
-}
-
+@import url(http://weloveiconfonts.com/api/?family=zocial);
 @media screen and (min-width: 50em){
   #wrapper {
     width: 50em;
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+hr {
+  color: black;
+  border-top: 5px double black;
+}
+
+footer li {
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  display: inline-block;
+  font-family: 'zocial', sans-serif;
+  text-shadow: 3px 3px 3px #aaa;
+  margin-right: 5px;
 }
 
 * {
@@ -60,6 +72,7 @@ article {
 p {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
+  padding: 5px;
 }
 
 img {
