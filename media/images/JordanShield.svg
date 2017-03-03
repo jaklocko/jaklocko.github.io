@@ -1,0 +1,11 @@
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272.37 292.63">
+	<defs>
+		<style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;}.cls-2{fill:#878787;}</style>
+	</defs>
+	<title>JordanShield</title>
+	<polygon class="cls-1" points="136.18 291.56 271.68 35.06 200.18 0.56 136.18 32.06 72.18 0.56 0.68 35.06 136.18 291.56"/>
+	<polygon class="cls-1" points="136.18 270.56 256.18 40.06 200.18 12.06 136.18 45.06 72.18 12.06 16.18 40.06 136.18 270.56"/>
+	<!--<rect class="cls-2" x="136.18" y="64.72" width="8.4" height="99.87"/>-->
+	<path class="cls-1" d="M165.4,236c-2.73,2-9.77,1.88-11.4,1.88,0,0-8.67.16-11.4-1.87s3-5,3-5V193H135.28l-7.17,6V177l7.5,6.5h10V78l8.5-12,8.29,12v105.5h10l7.5-6.5v22l-7.17-6H162.4v38S168.13,234,165.4,236Z" transform="translate(-17.82 -13.47)"/>
+	<line class="cls-1" x1="136.18" y1="64.72" x2="136.18" y2="164.59"/>
+</svg>
