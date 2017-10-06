@@ -275,12 +275,13 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
-
     // <jaklockoAdded> Use document.getElementsByClassName instead of document.querySelectorAll for performance reasons
+    // Move non-changing values into variable declarations outside of loop
     var items = document.getElementsByClassName('mover');
-    var scrolled = Math.sin(document.body.scrollTop / 1250);
-    for (var i = 0; i < items.length; i++) {
-        var phase = scrolled + (i % 5);
+    var l = items.length;
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    for (var i = 0; i < l; i++) {
+        var phase = Math.sin((scrollTop / 1250) + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     }
     // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -294,14 +295,22 @@ function updatePositions() {
 }
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
+window.addEventListener('resize', backgroundPizzas);
 // Generates the sliding pizzas when the page loads.
-// <jaklockoAdded> Refactoring code to move container selection outside of loop
-document.addEventListener('DOMContentLoaded', function() {
+// <jaklockoAdded> Refactoring code to move container selection outside of loop, determining the viewport height, number of necessary rows of pizzas,
+// then total number of necessary pizzas to fill the background
+// Moved code to generate the background pizzas outside of anonymous function, thus allowing the function to be called when the window is resized.
+function backgroundPizzas(){
+    var pizzaContainer = document.getElementById("movingPizzas1");
+    pizzaContainer.innerHTML = '';
     var cols = 8;
     var s = 256;
-    var pizzaContainer = document.getElementById("movingPizzas1");
-    for (var i = 0, elem; i < 24; i++) {
-        elem = document.createElement('div');
+    var h = window.innerHeight;
+    var rows = h / s;
+    var totalPizzas = rows * cols;
+    console.log(`Total number of necessary pizzas: ${totalPizzas}`);
+    for (var i = 0, elem; i < totalPizzas; i++) {
+        elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
         elem.style.height = "100px";
@@ -311,4 +320,5 @@ document.addEventListener('DOMContentLoaded', function() {
         pizzaContainer.appendChild(elem);
     }
     updatePositions();
-});
+}
+document.addEventListener('DOMContentLoaded', backgroundPizzas);

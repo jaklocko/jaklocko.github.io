@@ -9,7 +9,7 @@ This project is designed to teach web optimization techniques to ensure pages re
 * Minified whole file
 * Inline-ed CSS as appropriate
 * Integrated Web Font Loader to load fonts asynchronously
-* Optimized all images using File Optimizer [File Optimizer](http://nikkhokkho.sourceforge.net/static.php?page=FileOptimizer)
+* Optimized all images using [File Optimizer](http://nikkhokkho.sourceforge.net/static.php?page=FileOptimizer)
 
 ### pizza.html
 * Minified file
@@ -19,6 +19,10 @@ This project is designed to teach web optimization techniques to ensure pages re
 * Removed determineDX function since it was, as Cam stated, Utterly useless
 * Refactored changePizzaSizes function according to previous work in the Styling and Layout course to remove Forced Synchronous Layout code
 * Refactored "for-loop actually creates and appends all of the pizzas when the page loads" function by moving variable declaration out of the loop
+* Refactored updatePositions to use document.getElementsByClassName instead of document.querySelectorAll for performance reasons
+	* Moved non-changing values into variable declarations outside of loop
+* Moved code to generate the background pizzas outside of anonymous function, thus allowing the function to be called when the window is resized.
+	* Refactored code to move container selection outside of loop, determine the viewport height, number of necessary rows of pizzas, then total number of necessary pizzas to fill the background
 
 
 ## Pagespeed insights consistently reports a 95/96 for Mobile/Desktop for my index.html page
