@@ -5,7 +5,7 @@ This project is designed to teach web optimization techniques to ensure pages re
 ### index.html
 * Added media rules to CSS files to ensure only necessary content is requested at page load
 * Created separate script files for various scripts
-** Added async/defer to scripts as needed
+  * Added async/defer to scripts as needed
 * Minified whole file
 * Inline-ed CSS as appropriate
 * Integrated Web Font Loader to load fonts asynchronously
