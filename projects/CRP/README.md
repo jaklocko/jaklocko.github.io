@@ -9,7 +9,7 @@ This project is designed to teach web optimization techniques to ensure pages re
 * Minified whole file
 * Inline-ed CSS as appropriate
 * Integrated Web Font Loader to load fonts asynchronously
-* Optimized all images using File Optimizer [File Optimizer](http://nikkhokkho.sourceforge.net/static.php?page=FileOptimizer)
+* Optimized all images using [File Optimizer](http://nikkhokkho.sourceforge.net/static.php?page=FileOptimizer)
 
 ### pizza.html
 * Minified file
