@@ -21,5 +21,11 @@ This project is designed to teach web optimization techniques to ensure pages re
 * Refactored "for-loop actually creates and appends all of the pizzas when the page loads" function by moving variable declaration out of the loop
 
 
-## Pagespeed insights consistently reports a 95/96 for Mobile/Desktop for my index.html page
-## pizza.html resizes pizzas in under 1 ms, and consistently scrolls at 60 FPS
+_Pagespeed insights consistently reports a 95/96 for Mobile/Desktop for my index.html page_
+_pizza.html resizes pizzas in under 1 ms, and consistently scrolls at 60 FPS_
+
+_Minifiers/beautifiers used:_
+* [Dirty Markup](https://dirtymarkup.com/)
+* [JSHint](http://jshint.com/)
+* [W3 HTML Validator](https://validator.w3.org)
+* [W3 CSS Validator](http://jigsaw.w3.org/css-validator/)
