@@ -32,3 +32,4 @@ _Minifiers/beautifiers used:_
 * [JSHint](http://jshint.com/)
 * [W3 HTML Validator](https://validator.w3.org)
 * [W3 CSS Validator](http://jigsaw.w3.org/css-validator/)
+* [JS Minifier](http://www.minifier.org/)
