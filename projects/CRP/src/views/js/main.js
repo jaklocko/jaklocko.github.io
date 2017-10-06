@@ -196,16 +196,18 @@ var pizzaElementGenerator = function(i) {
 var resizePizzas = function(size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
     // Changes the value for the size of the pizza above the slider
+    // <jaklockoAdded> Moved element selection outside of switch, and change selection method from document.querySelector to document.getElementById
     function changeSliderLabel(size) {
+        var pizzaSize = document.getElementById("pizzaSize");
         switch (size) {
             case "1":
-                document.querySelector("#pizzaSize").innerHTML = "Small";
+                pizzaSize.innerHTML = "Small";
                 return;
             case "2":
-                document.querySelector("#pizzaSize").innerHTML = "Medium";
+                pizzaSize.innerHTML = "Medium";
                 return;
             case "3":
-                document.querySelector("#pizzaSize").innerHTML = "Large";
+                pizzaSize.innerHTML = "Large";
                 return;
             default:
                 console.log("bug in changeSliderLabel");
@@ -229,9 +231,11 @@ var resizePizzas = function(size) {
             default:
                 console.log("Error in changePizzaSizes Size Switcher");
         }
-        var pizzas = document.querySelectorAll(".randomPizzaContainer");
-        for (var i = 0; i < pizzas.length; i++) {
-            pizzas[i].style.width = newwidth + "%";
+        // get all the pizzas, calculate the length of the array (once), create the width string, then loop through all the pizzas and set the new width
+        var pizzas = document.getElementsByClassName("randomPizzaContainer");
+        var width = newwidth + "%";
+        for (var i = 0, len = pizzas.length; i < len; i++) {
+            pizzas[i].style.width = width;
         }
     }
     changePizzaSizes(size);
@@ -271,9 +275,12 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
-    var items = document.querySelectorAll('.mover');
+
+    // <jaklockoAdded> Use document.getElementsByClassName instead of document.querySelectorAll for performance reasons
+    var items = document.getElementsByClassName('mover');
+    var scrolled = Math.sin(document.body.scrollTop / 1250);
     for (var i = 0; i < items.length; i++) {
-        var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+        var phase = scrolled + (i % 5);
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     }
     // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -292,9 +299,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
-    var pizzaContainer = document.querySelector("#movingPizzas1");
-    for (var i = 0; i < 200; i++) {
-        var elem = document.createElement('div');
+    var pizzaContainer = document.getElementById("movingPizzas1");
+    for (var i = 0, elem; i < 24; i++) {
+        elem = document.createElement('div');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
         elem.style.height = "100px";
